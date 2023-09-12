@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Dtos\EmailHtmlTemplates\" />
+    <Folder Include="Dtos\EmailReceivers\" />
+    <Folder Include="Mappers\EmailHtmlTemplates\" />
+    <Folder Include="Mappers\EmailReceivers\" />
+    <Folder Include="Services\Implementations\EmailHtmlTemplates\" />
+    <Folder Include="Services\Implementations\EmailReceivers\" />
+    <Folder Include="Services\Interfaces\EmailHtmlTemplates\" />
+    <Folder Include="Services\Interfaces\EmailReceivers\" />
+    <Folder Include="Validators\EmailHtmlTemplates\" />
+    <Folder Include="Validators\EmailReceivers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="FluentValidation" Version="11.7.1" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.7.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\Infra\Infra.csproj" />
+  </ItemGroup>
+
+</Project>
