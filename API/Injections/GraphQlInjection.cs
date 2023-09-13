@@ -1,6 +1,5 @@
 ﻿using API.Mutations;
 using API.Queries;
-using API.Types;
 
 namespace API.Injections;
 
@@ -12,8 +11,6 @@ public static class GraphQlInjection
 
         server.AddQueryType<Query>();
         server.AddMutationType<UserMutation>();
-        server.AddType<UserType>();
-        server.AddType<LoginType>();
         server.AddAuthorization();
     }
 }

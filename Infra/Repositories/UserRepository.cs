@@ -36,6 +36,11 @@ public class UserRepository : Repository<User>, IUserRepository
             if (!PasswordUtils.ValidatePassword(password, entity.HashedPassword, entity.Salt)) throw new UnauthorizedAccessException("Invalid EMAIL or PASSWORD");
             return entity;
         }
+        catch(UnauthorizedAccessException ex)
+        {
+            _logger.LogError(ex.Message);
+            throw;
+        }
         catch (Exception ex)
         {
             _logger.LogError(ex.Message);
