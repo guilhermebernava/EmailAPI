@@ -1,9 +1,10 @@
 ﻿using Domain.Entities;
+using Domain.Enums;
 
 namespace Domain.Repositories;
 
 public interface IEmailHtmlTemplateRepository : IRepository<EmailHtmlTemplate>
 {
-    Task<EmailHtmlTemplate> GetByEmail(string email, CancellationToken cancellationToken = default);
-    Task<bool> LoginAsync(string email, string password, CancellationToken cancellationToken = default);
+    Task<EmailHtmlTemplate> GetByName(string name, CancellationToken cancellationToken = default);
+    Task<IEnumerable<EmailHtmlTemplate>> GetByType(EEmailType type, CancellationToken cancellationToken = default);
 }

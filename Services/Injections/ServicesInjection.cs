@@ -11,5 +11,7 @@ public static class ServicesInjection
         services.AddScoped<IUserDeleteServices, UserDeleteServices>();
         services.AddScoped<IUserUpdateServices, UserUpdateServices>();
         services.AddScoped<IUserLoginServices, UserLoginServices>();
+
+        services.AddScoped<IEmailSenderServices, EmailSenderServices>();
     }
 }

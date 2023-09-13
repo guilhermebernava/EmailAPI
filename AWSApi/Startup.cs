@@ -1,7 +1,6 @@
 using AWSApi.Injections;
 using AWSApi.Middlewares;
 using Infra.Injections;
-using Microsoft.AspNetCore.Builder;
 using Services.Injections;
 
 namespace AWSApi;
@@ -19,6 +18,7 @@ public class Startup
     {
 
         services.AddControllers();
+        services.AddAwsServices(Configuration);
         services.AddSwaggerGen();
         services.AddConfiguredSwagger();
         services.AddEndpointsApiExplorer();
@@ -48,7 +48,7 @@ public class Startup
         {
             endpoints.MapControllerRoute(
                 name: "default",
-                pattern: "{controller}/{action=Index}/{id?}");          
+                pattern: "{controller}/{action=Index}/{id?}");
         });
     }
 }
