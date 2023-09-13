@@ -33,6 +33,7 @@ public class UserCreateServices : IUserCreateServices
         }
 
         var entity = _mapper.Map<User>(paramter);
+        entity.Id = Guid.NewGuid();
         return await _repository.CreateAsync(entity);
     }
 }

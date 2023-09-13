@@ -10,7 +10,7 @@ public abstract class Entity
         CreatedAt = DateTime.Now.FormatDateTimeToBr();
     }
 
-    public Guid Id { get; private set; }
-    public DateTime CreatedAt { get; private set; }
-    public DateTime? DeletedAt { get; private set; }
+    public Guid Id { get; set; }
+    public DateTime CreatedAt { get;  set; }
+    public DateTime? DeletedAt { get;  set; }
 }
