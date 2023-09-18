@@ -13,5 +13,6 @@ public static class ServicesInjection
         services.AddScoped<IUserLoginServices, UserLoginServices>();
 
         services.AddScoped<ISendEmailServices, SendEmailServices>();
+        services.AddScoped<IGetJobsServices, GetJobsServices>();
     }
 }

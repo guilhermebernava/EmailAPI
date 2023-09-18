@@ -1,6 +1,9 @@
-﻿namespace Services.Services;
+﻿
+using Services.Dtos;
+
+namespace Services.Services;
 
 public interface IGetJobsServices
 {
-    Task<List<string>> ExecuteAsync();
+    Task<List<JobDto>> ExecuteAsync();
 }
