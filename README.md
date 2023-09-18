@@ -1,5 +1,5 @@
 # EmailAPI
-EmailAPI to make CRUD to send email
+EmailAPI to make CRUD to send email using GraphQL
 
 ### Command to build and start API
 ```
