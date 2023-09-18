@@ -9,5 +9,7 @@ public static class RepositoryInjection
     public static void AddRepositories(this IServiceCollection services)
     {
         services.AddScoped<IUserRepository,UserRepository>();
+        services.AddScoped<IEmailReceiverRepository, EmailReceiverRepository>();
+        services.AddScoped<IEmailHtmlTemplateRepository, EmailHtmlTemplateRepository>();
     }
 }

@@ -1,4 +1,5 @@
-﻿using Hangfire;
+﻿using FluentValidation;
+using Hangfire;
 using Microsoft.AspNetCore.Mvc;
 using Services.Dtos;
 using Services.Services;
@@ -12,24 +13,50 @@ public class EmailController : ControllerBase
     [HttpPost]
     public IActionResult SendEmailAsync([FromServices] ISendEmailServices services, [FromServices] IBackgroundJobClient backgroundJobClient, [FromBody] EmailDto dto)
     {
-        backgroundJobClient.Schedule<ISendEmailServices>(_ => services.ExecuteAsync(dto),TimeSpan.FromSeconds(10));
+        backgroundJobClient.Schedule<ISendEmailServices>(_ => services.ExecuteAsync(dto), TimeSpan.FromSeconds(10));
         return Ok();
     }
 
     [HttpPost]
     [Route("AutomaticEmail")]
-    public IActionResult SendAutomaticEmailAsync([FromServices] ISendEmailServices services,[FromBody] AutomaticEmailDto dto)
+    public IActionResult SendAutomaticEmailAsync([FromServices] ISendEmailServices services, [FromServices] IValidator<AutomaticEmailDto> validator, [FromBody] AutomaticEmailDto dto)
     {
-        //TODO add a way to pass a CRON to this automatic job
-        RecurringJob.AddOrUpdate(dto.Name, () => services.ExecuteAsync(dto.EmailDto), "5 15-23 * * *");
-        return Ok();
+        var validated = validator.Validate(dto);
+        if (!validated.IsValid) throw new ValidationException(validated.Errors);
+
+        try
+        {
+            RecurringJob.AddOrUpdate(dto.Name, () => services.ExecuteAsync(dto.EmailDto), dto.Cron);
+            return Ok();
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+
+    }
+
+    #region JOBS
+    [HttpGet]
+    [Route("GetJobs")]
+    public async Task<IActionResult> GetJobsAsync([FromServices] IGetJobsServices services)
+    {
+        return Ok(await services.ExecuteAsync());
     }
 
     [HttpDelete]
-    [Route("AutomaticEmail")]
-    public IActionResult SendAutomaticEmailAsync([FromBody] string name)
+    [Route("RemoveRecuringJobs")]
+    public IActionResult SendAutomaticEmailAsync([FromBody] string jobName)
     {
-        RecurringJob.RemoveIfExists(name);
-        return Ok();
+        try
+        {
+            RecurringJob.RemoveIfExists(jobName);
+            return Ok();
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
+    #endregion
 }

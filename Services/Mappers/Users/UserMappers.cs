@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Domain.Entities;
-using Services.Dtos.Users;
+using Services.Dtos;
 
 namespace Services.Mappers.Users;
 

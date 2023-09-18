@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
-using Services.Dtos.Users;
-using Services.Validators.Users;
+using Services.Dtos;
+using Services.Validators;
 
 namespace Services.Injections;
 
@@ -11,5 +11,7 @@ public static class ValidatorsInjection
     {
         services.AddScoped<IValidator<UserDto>, UserDtoValidator>();
         services.AddScoped<IValidator<LoginDto>, LoginDtoValidator>();
+        services.AddScoped<IValidator<EmailDto>, EmailDtoValidator>();
+        services.AddScoped<IValidator<AutomaticEmailDto>, AutomaticEmailDtoValidator>();
     }
 }

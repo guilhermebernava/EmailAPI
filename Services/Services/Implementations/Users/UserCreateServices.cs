@@ -4,7 +4,7 @@ using Domain.Repositories;
 using FluentValidation;
 using Infra.Repositories;
 using Microsoft.Extensions.Logging;
-using Services.Dtos.Users;
+using Services.Dtos;
 
 namespace Services.Services;
 

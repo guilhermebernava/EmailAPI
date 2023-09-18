@@ -15,6 +15,8 @@
     <Compile Remove="Services\Implementations\EmailReceivers\**" />
     <Compile Remove="Services\Interfaces\EmailHtmlTemplates\**" />
     <Compile Remove="Services\Interfaces\EmailReceivers\**" />
+    <Compile Remove="Validators\EmailHtmlTemplates\**" />
+    <Compile Remove="Validators\EmailReceivers\**" />
     <EmbeddedResource Remove="Dtos\EmailHtmlTemplates\**" />
     <EmbeddedResource Remove="Dtos\EmailReceivers\**" />
     <EmbeddedResource Remove="Mappers\EmailHtmlTemplates\**" />
@@ -23,6 +25,8 @@
     <EmbeddedResource Remove="Services\Implementations\EmailReceivers\**" />
     <EmbeddedResource Remove="Services\Interfaces\EmailHtmlTemplates\**" />
     <EmbeddedResource Remove="Services\Interfaces\EmailReceivers\**" />
+    <EmbeddedResource Remove="Validators\EmailHtmlTemplates\**" />
+    <EmbeddedResource Remove="Validators\EmailReceivers\**" />
     <None Remove="Dtos\EmailHtmlTemplates\**" />
     <None Remove="Dtos\EmailReceivers\**" />
     <None Remove="Mappers\EmailHtmlTemplates\**" />
@@ -31,11 +35,8 @@
     <None Remove="Services\Implementations\EmailReceivers\**" />
     <None Remove="Services\Interfaces\EmailHtmlTemplates\**" />
     <None Remove="Services\Interfaces\EmailReceivers\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Validators\EmailHtmlTemplates\" />
-    <Folder Include="Validators\EmailReceivers\" />
+    <None Remove="Validators\EmailHtmlTemplates\**" />
+    <None Remove="Validators\EmailReceivers\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,6 +44,7 @@
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="FluentValidation" Version="11.7.1" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.7.1" />
+    <PackageReference Include="Hangfire.Core" Version="1.8.5" />
   </ItemGroup>
 
   <ItemGroup>

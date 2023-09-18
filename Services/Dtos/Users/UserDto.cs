@@ -1,4 +1,4 @@
-﻿namespace Services.Dtos.Users;
+﻿namespace Services.Dtos;
 
 public class UserDto
 {

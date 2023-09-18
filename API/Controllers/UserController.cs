@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Services.Dtos.Users;
+using Services.Dtos;
 using Services.Services;
 
 namespace API.Controllers;

@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
-using Services.Dtos.Users;
+using Services.Dtos;
 
-namespace Services.Validators.Users;
+namespace Services.Validators;
 
 public class UserDtoValidator : AbstractValidator<UserDto>
 {

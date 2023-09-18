@@ -3,7 +3,7 @@ using FluentValidation;
 using Infra.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Services.Dtos.Users;
+using Services.Dtos;
 using Services.JWT;
 
 namespace Services.Services;

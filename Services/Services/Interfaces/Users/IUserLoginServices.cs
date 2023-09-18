@@ -1,4 +1,4 @@
-﻿using Services.Dtos.Users;
+﻿using Services.Dtos;
 using Services.Services.Interfaces;
 
 namespace Services.Services;
