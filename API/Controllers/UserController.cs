@@ -22,7 +22,7 @@ public class UserController : ControllerBase
     public async Task<IActionResult> UpdateUserAsync([FromServices] IUserUpdateServices services, [FromBody] UserDto dto)
     {
         var result = await services.ExecuteAsync(dto);
-        return result ? Created("/User/Login", null) : BadRequest();
+        return result ? Ok() : BadRequest();
     }
 
     [HttpDelete]

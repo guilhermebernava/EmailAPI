@@ -1,9 +1,6 @@
-﻿using AutoMapper;
-using Domain.Entities;
-using Domain.Repositories;
+﻿using Domain.Repositories;
 using Domain.Utils;
 using FluentValidation;
-using Infra.Repositories;
 using Microsoft.Extensions.Logging;
 using Services.Dtos;
 
@@ -13,9 +10,9 @@ public class UserUpdateServices : IUserUpdateServices
 {
     private readonly IValidator<UserDto> _validator;
     private readonly IUserRepository _repository;
-    private readonly ILogger<UserRepository> _logger;
+    private readonly ILogger<UserUpdateServices> _logger;
 
-    public UserUpdateServices(IValidator<UserDto> validator, IUserRepository repository,  ILogger<UserRepository> logger)
+    public UserUpdateServices(IValidator<UserDto> validator, IUserRepository repository, ILogger<UserUpdateServices> logger)
     {
         _validator = validator;
         _repository = repository;
@@ -25,7 +22,7 @@ public class UserUpdateServices : IUserUpdateServices
     public async Task<bool> ExecuteAsync(UserDto paramter)
     {
 
-        if(paramter.Id == null)
+        if (paramter.Id == null)
         {
             _logger.LogError($"ID NULL - \nEMAIL {paramter.Email}");
             throw new ValidationException("Id is null");
@@ -38,7 +35,7 @@ public class UserUpdateServices : IUserUpdateServices
             throw new ValidationException(validations.Errors);
         }
         Guid id = paramter.Id.Value;
-        var entity = await _repository.GetById(id);
+        var entity = await _repository.GetByIdAsync(id);
 
         entity.Email = paramter.Email;
         var (hash, salt) = PasswordUtils.GeneratePassword(paramter.Password);

@@ -2,7 +2,6 @@
 using Domain.Entities;
 using Domain.Repositories;
 using FluentValidation;
-using Infra.Repositories;
 using Microsoft.Extensions.Logging;
 using Services.Dtos;
 
@@ -13,9 +12,9 @@ public class UserCreateServices : IUserCreateServices
     private readonly IValidator<UserDto> _validator;
     private readonly IUserRepository _repository;
     private readonly IMapper _mapper;
-    private readonly ILogger<UserRepository> _logger;
+    private readonly ILogger<UserCreateServices> _logger;
 
-    public UserCreateServices(IValidator<UserDto> validator, IUserRepository repository, IMapper mapper, ILogger<UserRepository> logger)
+    public UserCreateServices(IValidator<UserDto> validator, IUserRepository repository, IMapper mapper, ILogger<UserCreateServices> logger)
     {
         _validator = validator;
         _repository = repository;

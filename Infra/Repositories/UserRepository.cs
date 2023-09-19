@@ -14,7 +14,7 @@ public class UserRepository : Repository<User>, IUserRepository
     {
     }
 
-    public async Task<User> GetByEmail(string email, CancellationToken cancellationToken = default)
+    public async Task<User> GetByEmailAsync(string email, CancellationToken cancellationToken = default)
     {
         try
         {
@@ -32,7 +32,7 @@ public class UserRepository : Repository<User>, IUserRepository
     {
         try
         {
-            var entity = await GetByEmail(email, cancellationToken);
+            var entity = await GetByEmailAsync(email, cancellationToken);
             if (!PasswordUtils.ValidatePassword(password, entity.HashedPassword, entity.Salt)) throw new UnauthorizedAccessException("Invalid EMAIL or PASSWORD");
             return entity;
         }

@@ -38,7 +38,7 @@ public class Repository<T> : IRepository<T> where T : Entity
     {
         try
         {
-            var entity = await GetById(id, cancellationToken);
+            var entity = await GetByIdAsync(id, cancellationToken);
             _dbSet.Remove(entity);
             return await SaveAsync(cancellationToken);
         }
@@ -63,7 +63,7 @@ public class Repository<T> : IRepository<T> where T : Entity
         }
     }
 
-    public async Task<T> GetById(Guid id, CancellationToken cancellationToken = default)
+    public async Task<T> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
     {
         try
         {

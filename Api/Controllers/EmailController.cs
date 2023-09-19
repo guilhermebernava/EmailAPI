@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using Hangfire;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Services.Dtos;
 using Services.Services;
@@ -8,6 +9,7 @@ namespace API.Controllers;
 
 [ApiController]
 [Route("[controller]")]
+[Authorize]
 public class EmailController : ControllerBase
 {
     [HttpPost]

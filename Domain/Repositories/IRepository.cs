@@ -9,5 +9,5 @@ public interface IRepository<T> where T : Entity
     Task<bool> DeleteAsync(Guid id, CancellationToken cancellationToken = default);
     Task<bool> SaveAsync(CancellationToken cancellationToken = default);
     Task<IEnumerable<T>> GetAllAsync(CancellationToken cancellationToken = default);
-    Task<T> GetById(Guid id, CancellationToken cancellationToken = default);
+    Task<T> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
 }

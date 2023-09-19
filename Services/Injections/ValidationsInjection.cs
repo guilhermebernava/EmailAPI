@@ -13,5 +13,7 @@ public static class ValidatorsInjection
         services.AddScoped<IValidator<LoginDto>, LoginDtoValidator>();
         services.AddScoped<IValidator<EmailDto>, EmailDtoValidator>();
         services.AddScoped<IValidator<AutomaticEmailDto>, AutomaticEmailDtoValidator>();
+        services.AddScoped<IValidator<EmailHtmlTemplateDto>, EmailHtmlTemplateDtoValidator>();
+        services.AddScoped<IValidator<EmailHtmlTemplateUpdateDto>, EmailHtmlTemplateUpdateDtoValidator>();
     }
 }

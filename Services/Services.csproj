@@ -7,35 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Dtos\EmailHtmlTemplates\**" />
     <Compile Remove="Dtos\EmailReceivers\**" />
-    <Compile Remove="Mappers\EmailHtmlTemplates\**" />
     <Compile Remove="Mappers\EmailReceivers\**" />
-    <Compile Remove="Services\Implementations\EmailHtmlTemplates\**" />
     <Compile Remove="Services\Implementations\EmailReceivers\**" />
-    <Compile Remove="Services\Interfaces\EmailHtmlTemplates\**" />
     <Compile Remove="Services\Interfaces\EmailReceivers\**" />
-    <Compile Remove="Validators\EmailHtmlTemplates\**" />
     <Compile Remove="Validators\EmailReceivers\**" />
-    <EmbeddedResource Remove="Dtos\EmailHtmlTemplates\**" />
     <EmbeddedResource Remove="Dtos\EmailReceivers\**" />
-    <EmbeddedResource Remove="Mappers\EmailHtmlTemplates\**" />
     <EmbeddedResource Remove="Mappers\EmailReceivers\**" />
-    <EmbeddedResource Remove="Services\Implementations\EmailHtmlTemplates\**" />
     <EmbeddedResource Remove="Services\Implementations\EmailReceivers\**" />
-    <EmbeddedResource Remove="Services\Interfaces\EmailHtmlTemplates\**" />
     <EmbeddedResource Remove="Services\Interfaces\EmailReceivers\**" />
-    <EmbeddedResource Remove="Validators\EmailHtmlTemplates\**" />
     <EmbeddedResource Remove="Validators\EmailReceivers\**" />
-    <None Remove="Dtos\EmailHtmlTemplates\**" />
     <None Remove="Dtos\EmailReceivers\**" />
-    <None Remove="Mappers\EmailHtmlTemplates\**" />
     <None Remove="Mappers\EmailReceivers\**" />
-    <None Remove="Services\Implementations\EmailHtmlTemplates\**" />
     <None Remove="Services\Implementations\EmailReceivers\**" />
-    <None Remove="Services\Interfaces\EmailHtmlTemplates\**" />
     <None Remove="Services\Interfaces\EmailReceivers\**" />
-    <None Remove="Validators\EmailHtmlTemplates\**" />
     <None Remove="Validators\EmailReceivers\**" />
   </ItemGroup>
 

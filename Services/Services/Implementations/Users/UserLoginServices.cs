@@ -1,6 +1,5 @@
 ﻿using Domain.Repositories;
 using FluentValidation;
-using Infra.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Services.Dtos;
@@ -13,9 +12,9 @@ public class UserLoginServices : IUserLoginServices
     private readonly IValidator<LoginDto> _validator;
     private readonly IUserRepository _repository;
     private readonly IConfiguration _configuration;
-    private readonly ILogger<UserRepository> _logger;
+    private readonly ILogger<UserLoginServices> _logger;
 
-    public UserLoginServices(IValidator<LoginDto> validator, IUserRepository repository, IConfiguration configuration, ILogger<UserRepository> logger)
+    public UserLoginServices(IValidator<LoginDto> validator, IUserRepository repository, IConfiguration configuration, ILogger<UserLoginServices> logger)
     {
         _validator = validator;
         _repository = repository;

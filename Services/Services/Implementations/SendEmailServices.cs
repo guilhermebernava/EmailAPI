@@ -89,7 +89,7 @@ public class SendEmailServices : ISendEmailServices
         {
             if (dto.TemplateName == null) throw new Exception("TemplateName can not be null when FROM_TEMPLATE is TRUE");
 
-            var template = await _emailHtmlTemplateRepository.GetByName(dto.TemplateName);
+            var template = await _emailHtmlTemplateRepository.GetByNameAsync(dto.TemplateName);
             return new MailMessage
             {
                 From = new MailAddress("notreply@noreply.com"),

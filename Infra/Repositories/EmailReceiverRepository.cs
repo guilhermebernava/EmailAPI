@@ -14,7 +14,7 @@ public class EmailReceiverRepository : Repository<EmailReceiver>, IEmailReceiver
     {
     }
 
-    public async Task<IEnumerable<EmailReceiver>> GetByClientType(EClientType clientType, CancellationToken cancellationToken = default)
+    public async Task<IEnumerable<EmailReceiver>> GetByClientTypeAsync(EClientType clientType, CancellationToken cancellationToken = default)
     {
         try
         {
@@ -28,7 +28,7 @@ public class EmailReceiverRepository : Repository<EmailReceiver>, IEmailReceiver
         }
     }
 
-    public async Task<EmailReceiver> GetByEmail(string email, CancellationToken cancellationToken = default)
+    public async Task<EmailReceiver> GetByEmailAsync(string email, CancellationToken cancellationToken = default)
     {
         try
         {
@@ -42,7 +42,7 @@ public class EmailReceiverRepository : Repository<EmailReceiver>, IEmailReceiver
         }
     }
 
-    public async Task<EmailReceiver> GetByName(string name, CancellationToken cancellationToken = default)
+    public async Task<EmailReceiver> GetByNameAsync(string name, CancellationToken cancellationToken = default)
     {
         try
         {
@@ -56,7 +56,7 @@ public class EmailReceiverRepository : Repository<EmailReceiver>, IEmailReceiver
         }
     }
 
-    public async Task<IEnumerable<EmailReceiver>> GetByRecurring(bool recurring = true, CancellationToken cancellationToken = default)
+    public async Task<IEnumerable<EmailReceiver>> GetByRecurringAsync(bool recurring = true, CancellationToken cancellationToken = default)
     {
         try
         {

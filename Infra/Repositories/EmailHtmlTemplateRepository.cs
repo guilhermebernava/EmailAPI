@@ -13,7 +13,7 @@ public class EmailHtmlTemplateRepository : Repository<EmailHtmlTemplate>, IEmail
     {
     }
 
-    public async Task<EmailHtmlTemplate> GetByName(string name, CancellationToken cancellationToken = default)
+    public async Task<EmailHtmlTemplate> GetByNameAsync(string name, CancellationToken cancellationToken = default)
     {
         try
         {

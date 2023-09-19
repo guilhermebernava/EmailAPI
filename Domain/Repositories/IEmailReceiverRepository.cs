@@ -5,8 +5,8 @@ namespace Domain.Repositories;
 
 public interface IEmailReceiverRepository : IRepository<EmailReceiver>
 {
-    Task<IEnumerable<EmailReceiver>> GetByClientType(EClientType clientType, CancellationToken cancellationToken = default);
-    Task<EmailReceiver> GetByEmail(string email, CancellationToken cancellationToken = default);
-    Task<EmailReceiver> GetByName(string name, CancellationToken cancellationToken = default);
-    Task<IEnumerable<EmailReceiver>> GetByRecurring(bool recurring = true, CancellationToken cancellationToken = default);
+    Task<IEnumerable<EmailReceiver>> GetByClientTypeAsync(EClientType clientType, CancellationToken cancellationToken = default);
+    Task<EmailReceiver> GetByEmailAsync(string email, CancellationToken cancellationToken = default);
+    Task<EmailReceiver> GetByNameAsync(string name, CancellationToken cancellationToken = default);
+    Task<IEnumerable<EmailReceiver>> GetByRecurringAsync(bool recurring = true, CancellationToken cancellationToken = default);
 }

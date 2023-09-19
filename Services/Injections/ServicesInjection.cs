@@ -12,6 +12,12 @@ public static class ServicesInjection
         services.AddScoped<IUserUpdateServices, UserUpdateServices>();
         services.AddScoped<IUserLoginServices, UserLoginServices>();
 
+        services.AddScoped<IEmailHtmlTemplateCreateServices, EmailHtmlTemplateCreateServices>();
+        services.AddScoped<IEmailHtmlTemplateDeleteServices, EmailHtmlTemplateDeleteServices>();
+        services.AddScoped<IEmailHtmlTemplateUpdateServices, EmailHtmlTemplateUpdateServices>();
+        services.AddScoped <IEmailHtmlTemplateGetAllServices, EmailHtmlTemplateGetAllServices>();
+        services.AddScoped <IEmailHtmlTemplateGetByNameServices, EmailHtmlTemplateGetByNameServices>();
+
         services.AddScoped<ISendEmailServices, SendEmailServices>();
         services.AddScoped<IGetJobsServices, GetJobsServices>();
     }
