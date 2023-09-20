@@ -18,7 +18,7 @@ public class EmailReceiverRepository : Repository<EmailReceiver>, IEmailReceiver
     {
         try
         {
-            var entities = await _dbSet.Where(_ => _.ClientType == clientType && _.DeletedAt != null).ToListAsync(cancellationToken);
+            var entities = await _dbSet.Where(_ => _.ClientType == clientType && _.DeletedAt == null).ToListAsync(cancellationToken);
             return entities;
         }
         catch (Exception ex)
@@ -32,7 +32,7 @@ public class EmailReceiverRepository : Repository<EmailReceiver>, IEmailReceiver
     {
         try
         {
-            var entity = await _dbSet.FirstOrDefaultAsync(_ => _.Email == email && _.DeletedAt != null, cancellationToken);
+            var entity = await _dbSet.FirstOrDefaultAsync(_ => _.Email == email && _.DeletedAt == null, cancellationToken);
             return entity ?? throw new RepositoryException($"Not found any user with this Email - {email}");
         }
         catch (Exception ex)
@@ -46,7 +46,7 @@ public class EmailReceiverRepository : Repository<EmailReceiver>, IEmailReceiver
     {
         try
         {
-            var entity = await _dbSet.FirstOrDefaultAsync(_ => _.Name == name && _.DeletedAt != null, cancellationToken);
+            var entity = await _dbSet.FirstOrDefaultAsync(_ => _.Name == name && _.DeletedAt == null, cancellationToken);
             return entity ?? throw new RepositoryException($"Not found any user with this Name - {name}");
         }
         catch (Exception ex)
@@ -60,7 +60,7 @@ public class EmailReceiverRepository : Repository<EmailReceiver>, IEmailReceiver
     {
         try
         {
-            var entities = await _dbSet.Where(_ => _.Recurring == recurring && _.DeletedAt != null).ToListAsync(cancellationToken);
+            var entities = await _dbSet.Where(_ => _.Recurring == recurring && _.DeletedAt == null).ToListAsync(cancellationToken);
             return entities;
         }
         catch (Exception ex)

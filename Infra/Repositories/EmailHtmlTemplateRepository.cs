@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Domain.Enums;
 using Domain.Repositories;
 using Infra.Data;
 using Infra.Exceptions;
@@ -13,11 +14,25 @@ public class EmailHtmlTemplateRepository : Repository<EmailHtmlTemplate>, IEmail
     {
     }
 
+    public async Task<IEnumerable<EmailHtmlTemplate>> GetByEmailTypeAsync(EEmailType type, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            var entities = await _dbSet.Where(_ => _.EmailType == type && _.DeletedAt == null).ToListAsync(cancellationToken);
+            return entities;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex.Message);
+            throw new RepositoryException(ex.Message);
+        }
+    }
+
     public async Task<EmailHtmlTemplate> GetByNameAsync(string name, CancellationToken cancellationToken = default)
     {
         try
         {
-            var entity = await _dbSet.FirstOrDefaultAsync(_ => _.Name == name && _.DeletedAt != null, cancellationToken);
+            var entity = await _dbSet.FirstOrDefaultAsync(_ => _.Name == name && _.DeletedAt == null, cancellationToken);
             return entity ?? throw new RepositoryException($"Not found any user with this NAME - {name}");
         }
         catch (Exception ex)

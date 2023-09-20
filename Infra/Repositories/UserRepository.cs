@@ -18,7 +18,7 @@ public class UserRepository : Repository<User>, IUserRepository
     {
         try
         {
-            var entity = await _dbSet.FirstOrDefaultAsync(_ => _.Email == email && _.DeletedAt != null,cancellationToken);
+            var entity = await _dbSet.FirstOrDefaultAsync(_ => _.Email == email && _.DeletedAt == null,cancellationToken);
             return entity ?? throw new RepositoryException($"Not found any user with this EMAIL - {email}");
         }
         catch (Exception ex)
