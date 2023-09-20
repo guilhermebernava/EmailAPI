@@ -7,24 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Dtos\EmailReceivers\**" />
-    <Compile Remove="Mappers\EmailReceivers\**" />
-    <Compile Remove="Services\Implementations\EmailReceivers\**" />
-    <Compile Remove="Services\Interfaces\EmailReceivers\**" />
-    <Compile Remove="Validators\EmailReceivers\**" />
-    <EmbeddedResource Remove="Dtos\EmailReceivers\**" />
-    <EmbeddedResource Remove="Mappers\EmailReceivers\**" />
-    <EmbeddedResource Remove="Services\Implementations\EmailReceivers\**" />
-    <EmbeddedResource Remove="Services\Interfaces\EmailReceivers\**" />
-    <EmbeddedResource Remove="Validators\EmailReceivers\**" />
-    <None Remove="Dtos\EmailReceivers\**" />
-    <None Remove="Mappers\EmailReceivers\**" />
-    <None Remove="Services\Implementations\EmailReceivers\**" />
-    <None Remove="Services\Interfaces\EmailReceivers\**" />
-    <None Remove="Validators\EmailReceivers\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="FluentValidation" Version="11.7.1" />

@@ -3,6 +3,6 @@ using Services.Services.Interfaces;
 
 namespace Services.Services;
 
-public interface IUserUpdateServices : IServices<bool,UserUpdateDto>
+public interface IEmailReceiverUpdateServices : IServices<bool,EmailReceiverUpdateDto>
 {
 }

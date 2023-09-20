@@ -10,5 +10,6 @@ public static class MappersInjection
     {
         services.AddAutoMapper(typeof(UserMappers));
         services.AddAutoMapper(typeof(EmailHtmlTemplateMappers));
+        services.AddAutoMapper(typeof(EmailReceiverMappers));
     }
 }

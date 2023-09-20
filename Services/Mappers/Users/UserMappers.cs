@@ -10,6 +10,10 @@ public class UserMappers : Profile
     {
         CreateMap<UserDto, User>();
         CreateMap<User, UserDto>();
+
+        CreateMap<UserUpdateDto, User>();
+        CreateMap<User, UserUpdateDto>();
+
         CreateMap<LoginDto, User>();
         CreateMap<User, LoginDto>();
     }
