@@ -17,7 +17,7 @@ public class EmailHtmlTemplateRepository : Repository<EmailHtmlTemplate>, IEmail
     {
         try
         {
-            var entity = await _dbSet.FirstOrDefaultAsync(_ => _.Name == name, cancellationToken);
+            var entity = await _dbSet.FirstOrDefaultAsync(_ => _.Name == name && _.DeletedAt != null, cancellationToken);
             return entity ?? throw new RepositoryException($"Not found any user with this NAME - {name}");
         }
         catch (Exception ex)

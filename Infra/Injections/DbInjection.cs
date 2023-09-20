@@ -8,6 +8,6 @@ public static class DbInjection
 {
     public static void AddDb(this IServiceCollection services,string connectionString)
     {
-        services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString), ServiceLifetime.Singleton);
+        services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connectionString), ServiceLifetime.Singleton);
     }
 }

@@ -7,7 +7,7 @@ public abstract class Entity
     public Entity()
     {
         Id = Guid.NewGuid();
-        CreatedAt = DateTime.Now.FormatDateTimeToBr();
+        CreatedAt = DateTime.UtcNow;
     }
 
     public Guid Id { get; set; }

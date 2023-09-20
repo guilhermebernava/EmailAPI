@@ -17,8 +17,7 @@ public class EntityConfiguration<TEntity> : IEntityTypeConfiguration<TEntity> wh
         builder.Property(e => e.CreatedAt)
             .IsRequired();
 
-        builder.Property(e => e.DeletedAt)
-            .HasColumnType("datetime");
+        builder.Property(e => e.DeletedAt);
     }
 }
 

@@ -39,7 +39,8 @@ public class Repository<T> : IRepository<T> where T : Entity
         try
         {
             var entity = await GetByIdAsync(id, cancellationToken);
-            _dbSet.Remove(entity);
+            entity.DeletedAt = DateTime.UtcNow;
+            _dbSet.Update(entity);
             return await SaveAsync(cancellationToken);
         }
         catch (Exception ex)
@@ -53,7 +54,7 @@ public class Repository<T> : IRepository<T> where T : Entity
     {
         try
         {
-            var entities = await _dbSet.ToListAsync(cancellationToken);
+            var entities = await _dbSet.Where(_ => _.DeletedAt != null).ToListAsync(cancellationToken);
             return entities;
         }
         catch (Exception ex)
@@ -67,7 +68,7 @@ public class Repository<T> : IRepository<T> where T : Entity
     {
         try
         {
-            var entity = await _dbSet.FirstOrDefaultAsync(_ => _.Id == id, cancellationToken);
+            var entity = await _dbSet.FirstOrDefaultAsync(_ => _.Id == id && _.DeletedAt != null, cancellationToken);
             return entity ?? throw new RepositoryException($"Not found any user with this ID - {id}");
         }
         catch (Exception ex)
