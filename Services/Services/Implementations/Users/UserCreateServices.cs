@@ -27,7 +27,7 @@ public class UserCreateServices : IUserCreateServices
         var validations = _validator.Validate(paramter);
         if (!validations.IsValid)
         {
-            _logger.LogError($"Errors in validation in CREATE USER - \nEMAIL {paramter.Email}");
+            _logger.LogError($"[UserLoginServices] - Errors in validation in UserDto", validations.Errors);
             throw new ValidationException(validations.Errors);
         }
 

@@ -25,7 +25,7 @@ public class UserUpdateServices : IUserUpdateServices
         var validations = _validator.Validate(paramter);
         if (!validations.IsValid)
         {
-            _logger.LogError($"Errors in validation in UPDATE USER or ID NULL - \nEMAIL {paramter.Email}");
+            _logger.LogError($"[UserLoginServices] - Errors in validation in UpdateUserDto - {paramter.Email}", validations.Errors);
             throw new ValidationException(validations.Errors);
         }
 

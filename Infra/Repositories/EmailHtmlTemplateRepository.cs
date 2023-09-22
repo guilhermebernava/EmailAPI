@@ -37,7 +37,7 @@ public class EmailHtmlTemplateRepository : Repository<EmailHtmlTemplate>, IEmail
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex.Message);
+            _logger.LogError("[EmailHtmlTemplateRepository] - " + ex.Message);
             throw new RepositoryException(ex.Message);
         }
     }

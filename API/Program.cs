@@ -2,6 +2,7 @@ using API.Injections;
 using API.Middlewares;
 using Hangfire;
 using Infra.Injections;
+using Serilog;
 using Services.Injections;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +20,7 @@ builder.Services.AddRepositories();
 builder.Services.AddDb(builder.Configuration.GetConnectionString("emailDb"));
 builder.Services.AddMappers();
 builder.Services.AddServices();
+builder.Host.UseSerilog();
 builder.Services.AddValidators();
 
 var app = builder.Build();

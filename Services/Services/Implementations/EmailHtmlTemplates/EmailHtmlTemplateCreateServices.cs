@@ -27,7 +27,7 @@ public class EmailHtmlTemplateCreateServices : IEmailHtmlTemplateCreateServices
         var validate = _validator.Validate(paramter);
         if (!validate.IsValid)
         {
-            _logger.LogError("Validation error in EmailHtmlTemplateDto");
+            _logger.LogError("[EmailHtmlTemplateCreateServices] - Validation error in EmailHtmlTemplateDto", validate.Errors);
             throw new ValidationException(validate.Errors);
         }
 

@@ -33,7 +33,7 @@ public class GlobalErrorMiddleware
         var exceptionType = exception.GetType();
 
 
-        if (exceptionType == typeof(ValidationException))
+        if (exceptionType == typeof(FluentValidation.ValidationException))
         {
             status = HttpStatusCode.BadRequest;
             message = exception.Message;

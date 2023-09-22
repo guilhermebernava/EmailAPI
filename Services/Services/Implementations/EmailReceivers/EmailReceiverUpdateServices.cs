@@ -26,7 +26,7 @@ public class EmailReceiverUpdateServices : IEmailReceiverUpdateServices
         var validate = _validator.Validate(paramter);
         if (!validate.IsValid)
         {
-            _logger.LogError("Validation error in EmailReceiverDto");
+            _logger.LogError("[EmailReceiverCreateServices] - Validation error in EmailReceiverDto", validate.Errors);
             throw new ValidationException(validate.Errors);
         }
 

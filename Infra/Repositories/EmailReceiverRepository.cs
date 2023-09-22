@@ -23,7 +23,7 @@ public class EmailReceiverRepository : Repository<EmailReceiver>, IEmailReceiver
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex.Message);
+            _logger.LogError("[EmailReceiverRepository] - " + ex.Message);
             throw new RepositoryException(ex.Message);
         }
     }
@@ -37,7 +37,7 @@ public class EmailReceiverRepository : Repository<EmailReceiver>, IEmailReceiver
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex.Message);
+            _logger.LogError("[EmailReceiverRepository] - " + ex.Message);
             throw new RepositoryException(ex.Message);
         }
     }
@@ -51,7 +51,7 @@ public class EmailReceiverRepository : Repository<EmailReceiver>, IEmailReceiver
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex.Message);
+            _logger.LogError("[EmailReceiverRepository] - " + ex.Message);
             throw new RepositoryException(ex.Message);
         }
     }
@@ -65,7 +65,7 @@ public class EmailReceiverRepository : Repository<EmailReceiver>, IEmailReceiver
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex.Message);
+            _logger.LogError("[EmailReceiverRepository] - " + ex.Message);
             throw new RepositoryException(ex.Message);
         }
     }

@@ -29,7 +29,7 @@ public class Repository<T> : IRepository<T> where T : Entity
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex.Message);
+            _logger.LogError($"[Repository{typeof(T).Name}] - " + ex.Message);
             throw new RepositoryException(ex.Message);
         }
     }
@@ -45,7 +45,7 @@ public class Repository<T> : IRepository<T> where T : Entity
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex.Message);
+            _logger.LogError($"[Repository{typeof(T).Name}] - " + ex.Message);
             throw new RepositoryException(ex.Message);
         }
     }
@@ -59,7 +59,7 @@ public class Repository<T> : IRepository<T> where T : Entity
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex.Message);
+            _logger.LogError($"[Repository{typeof(T).Name}] - " + ex.Message);
             throw new RepositoryException(ex.Message);
         }
     }
@@ -73,7 +73,7 @@ public class Repository<T> : IRepository<T> where T : Entity
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex.Message);
+            _logger.LogError($"[Repository{typeof(T).Name}] - " + ex.Message);
             throw new RepositoryException(ex.Message);
         }
     }
@@ -86,7 +86,7 @@ public class Repository<T> : IRepository<T> where T : Entity
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex.Message);
+            _logger.LogError($"[Repository{typeof(T).Name}] - " + ex.Message);
             throw new RepositoryException(ex.Message);
         }
     }
@@ -100,7 +100,7 @@ public class Repository<T> : IRepository<T> where T : Entity
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex.Message);
+            _logger.LogError($"[Repository{typeof(T).Name}] - " + ex.Message);
             throw new RepositoryException(ex.Message);
         }
     }

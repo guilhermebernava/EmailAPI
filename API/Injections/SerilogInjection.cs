@@ -8,7 +8,9 @@ public static class SerilogInjector
     {
         Log.Logger = new LoggerConfiguration()
             .MinimumLevel.Error()
-            .WriteTo.File("error.log", rollingInterval: RollingInterval.Day)
-            .CreateLogger();
+            .Enrich.WithProperty("SourceContext", null)
+            .WriteTo.Console()
+            .WriteTo.File("Logs/errors.txt", flushToDiskInterval: TimeSpan.FromSeconds(1))
+            .CreateBootstrapLogger();
     }
 }

@@ -1,9 +1,11 @@
 ﻿using Domain.Repositories;
 using FluentValidation;
+using Hangfire.Logging;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Services.Dtos;
 using Services.JWT;
+using LogLevel = Microsoft.Extensions.Logging.LogLevel;
 
 namespace Services.Services;
 
@@ -27,7 +29,7 @@ public class UserLoginServices : IUserLoginServices
         var validations = _validator.Validate(paramter);
         if (!validations.IsValid)
         {
-            _logger.LogError($"Errors in validation in LOGIN USER - \nEMAIL {paramter.Email}");
+            _logger.LogError($"[UserLoginServices] - Errors in validation of LoginDto", validations.Errors);
             throw new ValidationException(validations.Errors);
         }
 
@@ -35,7 +37,7 @@ public class UserLoginServices : IUserLoginServices
 
         if (validUser == null)
         {
-            _logger.LogError($"NOT FOUND ANY USER with this EMAIL - {paramter.Email}");
+            _logger.LogError($"[UserLoginServices] - Not found any user with this email - {paramter.Email}");
             throw new UnauthorizedAccessException("Invalid EMAIL or PASSWORD");
         }
         return JwtGenerator.GenerateToken(_configuration, validUser);

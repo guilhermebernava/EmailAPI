@@ -23,7 +23,7 @@ public class UserRepository : Repository<User>, IUserRepository
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex.Message);
+            _logger.LogError("[UserRepository] - " + ex.Message);
             throw new RepositoryException(ex.Message);
         }
     }
@@ -36,9 +36,13 @@ public class UserRepository : Repository<User>, IUserRepository
             if (!PasswordUtils.ValidatePassword(password, entity.HashedPassword, entity.Salt)) throw new UnauthorizedAccessException("Invalid EMAIL or PASSWORD");
             return entity;
         }
+        catch (UnauthorizedAccessException)
+        {
+            throw;
+        }
         catch (Exception ex)
         {
-            _logger.LogError(ex.Message);
+            _logger.LogError("[UserRepository] - " + ex.Message);
             throw new RepositoryException(ex.Message);
         }
     }
