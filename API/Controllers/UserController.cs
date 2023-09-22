@@ -30,7 +30,7 @@ public class UserController : ControllerBase
     public async Task<IActionResult> DeleteUserAsync([FromServices] IUserDeleteServices services, [FromQuery] Guid id)
     {
         var result = await services.ExecuteAsync(id);
-        return result ? Ok() : BadRequest();
+        return result ? Ok() : NotFound();
     }
 
     [HttpPost]

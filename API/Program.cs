@@ -35,3 +35,5 @@ app.UseHttpsRedirection();
 app.MapControllers();
 app.UseMiddleware<GlobalErrorMiddleware>();
 app.Run();
+
+public partial class Program { }
