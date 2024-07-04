@@ -1,0 +1,47 @@
+version: '3.8'
+services:
+  hangfireDb:
+    image: postgres
+    container_name: hangfireDb
+    environment:
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: HangfireDb
+    ports:
+      - "5200:5432"
+    networks:
+      - my-network
+
+  emailDb:
+    image: postgres
+    container_name: emailDb
+    environment:
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: EmailDb
+    ports:
+      - "5432:5432"
+    networks:
+      - my-network
+
+  email-api:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: email-api
+    ports:
+      - "7000:7000"
+    environment:
+      Logging__LogLevel__Default: Information
+      Logging__LogLevel__Microsoft.AspNetCore: Warning
+      EmailSender__Email: "bernatestes00@gmail.com"
+      EmailSender__Password: "rhxpcefytfomkhdw"
+      ConnectionStrings__emailDb: "Host=emailDb;Port=5432;Database=EmailDb;User Id=postgres;Password=mysecretpassword;"
+      ConnectionStrings__hangfireDb: "Host=hangfireDb;Port=5432;Database=HangfireDb;User Id=postgres;Password=mysecretpassword;"
+      Jwt__Audience: "https://localhost:7000"
+      Jwt__Issuer: "https://localhost:7000"
+      Jwt__Sec: "eASDJASDHBASBHDAKJSDNASBHD1212000515156694569845986c"
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
